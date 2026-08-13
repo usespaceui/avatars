@@ -136,7 +136,7 @@ const avatarJson = createAvatar({
 | `size`      | `number`                                   | `64`         | Rendered size in pixels.                                                 |
 | `circle`    | `boolean`                                  | `false`      | If true, clips the avatar to a full circle (otherwise a full rectangle). |
 | `colors`    | `[string, string, string, string, string]` | –            | Exactly 5 colors to use. If omitted, a harmonious palette is generated.  |
-| `effect`    | `AvatarEffect`                             | `"none"`     | Optional post-processing effect.                                         |
+| `effect`    | `AvatarEffect`                             | `"none"`     | Optional post-processing effect (`none` or `noise`).                     |
 | `animate`   | `boolean`                                  | `false`      | Whether to animate the avatar.                                           |
 | `className` | `string`                                   | –            | Optional CSS class applied to the wrapper `span` element.                |
 

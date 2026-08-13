@@ -49,4 +49,17 @@ assert.equal(classic.name, 'ada', 'JSON uses name as the public identity field')
 assert.equal(isAnimateActive(AvatarVariant.triton, AvatarEffect.none), true, 'active animation combination is detected')
 assert.equal(isAnimateActive(AvatarVariant.triton, AvatarEffect.noise), false, 'filter effects disable animation')
 
+const effectColors = ['#ff5c8a', '#ffcc66', '#65d8ff', '#6f6bff', '#1d1b38']
+const noiseSvg = createAvatar({ name: 'effect-contract', variant: AvatarVariant.triton, colors: effectColors, effect: AvatarEffect.noise })
+assert.match(noiseSvg, /color-interpolation-filters="sRGB"/, 'noise keeps predictable color interpolation')
+assert.match(noiseSvg, /feTurbulence/, 'noise keeps the organic turbulence source')
+
+for (const removedEffect of ['dither', 'pixelate']) {
+  assert.throws(
+    () => createAvatar({ name: 'removed-effect-contract', variant: AvatarVariant.triton, effect: removedEffect }),
+    /Unknown avatar effect/,
+    `${removedEffect} is rejected instead of rendering a broken filter`,
+  )
+}
+
 console.log('Avatar package contracts passed.')

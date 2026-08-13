@@ -41,7 +41,7 @@ export interface CreateAvatarOptions {
   size?: number
   /** If true, clips the avatar to a full circle. Defaults to false. */
   circle?: boolean
-  /** Optional SVG GPU post-processing effect ("none", "noise", "pixelate", "dither"). Defaults to "none". */
+  /** Optional SVG post-processing effect ("none" or "noise"). Defaults to "none". */
   effect?: AvatarEffect
   /** Exactly 5 hexadecimal colors. If omitted, generated automatically from the name. */
   colors?: AvatarColors
@@ -224,7 +224,6 @@ function generateAvatar(options: CreateAvatarOptions): AvatarJson {
     effect: effectiveEffect,
     seedInt,
     instanceId,
-    colors,
     ariaLabel: resolvedName === 'default' ? 'Avatar' : `Avatar for ${resolvedName}`,
   })
 

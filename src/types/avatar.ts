@@ -18,8 +18,6 @@ export type AvatarFamily = (typeof AvatarFamily)[keyof typeof AvatarFamily]
 export const AvatarEffect = {
   none: 'none',
   noise: 'noise',
-  pixelate: 'pixelate',
-  dither: 'dither',
 } as const
 export type AvatarEffect = (typeof AvatarEffect)[keyof typeof AvatarEffect]
 
@@ -183,7 +181,7 @@ const ALL_DETAILS: Record<AvatarVariant, AvatarDetails> = (() => {
       id: g,
       family: AvatarFamily.gradient,
       supportsAnimate: true,
-      supportedEffects: [AvatarEffect.none, AvatarEffect.noise, AvatarEffect.pixelate, AvatarEffect.dither],
+      supportedEffects: [AvatarEffect.none, AvatarEffect.noise],
       animatedEffects: [AvatarEffect.none],
       supportsColors: true,
     }
