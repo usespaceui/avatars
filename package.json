@@ -1,6 +1,6 @@
 {
   "name": "@usespaceui/avatars",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A dynamic, code-driven SVG avatar generator for React applications.",
   "author": {
     "name": "SpaceUI",
