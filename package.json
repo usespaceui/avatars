@@ -1,7 +1,33 @@
 {
   "name": "@usespaceui/avatars",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A dynamic, code-driven SVG avatar generator for React applications.",
+  "author": {
+    "name": "SpaceUI",
+    "email": "hello@spaceui.one",
+    "url": "https://www.spaceui.one"
+  },
+  "contributors": [
+    {
+      "name": "SpaceUI Team",
+      "email": "hello@spaceui.one",
+      "url": "https://www.spaceui.one"
+    }
+  ],
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/usespaceui"
+  },
+  "license": "MIT",
+  "homepage": "https://avatars.spaceui.one",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usespaceui/avatars.git"
+  },
+  "bugs": {
+    "url": "https://github.com/usespaceui/avatars/issues",
+    "email": "hello@spaceui.one"
+  },
   "keywords": [
     "avatars",
     "svg",
@@ -14,6 +40,10 @@
     "svelte",
     "deterministic"
   ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -55,22 +85,13 @@
   "peerDependencies": {
     "react": ">=18"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/usespaceui/avatars.git"
-  },
-  "homepage": "https://avatars.spaceui.one",
-  "bugs": {
-    "url": "https://github.com/usespaceui/avatars/issues"
+  "dependencies": {
+    "@usespaceui/gradients": "^0.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",
     "react": "^18.2.0",
     "tsup": "^8.0.2",
     "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "@usespaceui/gradients": "^0.1.2"
-  },
-  "license": "MIT"
+  }
 }
