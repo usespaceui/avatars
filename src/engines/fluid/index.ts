@@ -1,0 +1,6 @@
+export * from './animals'
+export * from './astronaut'
+export * from './bot'
+export * from './ghost'
+export * from './glitch'
+export * from './splash'

@@ -1,0 +1,75 @@
+{
+  "name": "@usespaceui/avatars",
+  "version": "0.1.0",
+  "description": "Procedural SVG avatars engine",
+  "keywords": [
+    "avatars",
+    "svg",
+    "procedural",
+    "generative",
+    "spaceui",
+    "react",
+    "vue",
+    "solid",
+    "svelte",
+    "deterministic"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./react": {
+      "import": {
+        "types": "./dist/react.d.ts",
+        "default": "./dist/react.mjs"
+      },
+      "require": {
+        "types": "./dist/react.d.cts",
+        "default": "./dist/react.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "pnpm run build && node test/contracts.mjs"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usespaceui/avatars.git"
+  },
+  "homepage": "https://avatars.spaceui.one",
+  "bugs": {
+    "url": "https://github.com/usespaceui/avatars/issues"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "react": "^18.2.0",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@usespaceui/gradients": "^0.1.2"
+  }
+}
