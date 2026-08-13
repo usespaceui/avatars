@@ -23,9 +23,6 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/usespaceui/avatars/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" />
-  </a>
   <a href="https://twitter.com/intent/follow?screen_name=usespaceui">
     <img src="https://img.shields.io/twitter/follow/usespaceui.svg?label=Follow%20@usespaceui" alt="Follow @usespaceui" />
   </a>
