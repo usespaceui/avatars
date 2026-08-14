@@ -129,16 +129,16 @@ const avatarJson = createAvatar({
 
 ## ⚙️ React Props
 
-| Prop        | Type                                       | Default      | Description                                                              |
-| ----------- | ------------------------------------------ | ------------ | ------------------------------------------------------------------------ |
-| `name`      | `string`                                   | `"Space UI"` | Deterministic avatar identity seed.                                      |
+| Prop        | Type                                         | Default      | Description                                                                                               |
+| ----------- | -------------------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------- |
+| `name`      | `string`                                     | `"Space UI"` | Deterministic avatar identity seed.                                                                       |
 | `variant`   | `AvatarVariant` \| `AvatarFamily` \| `"all"` | `"pebble"`   | The visual family / style of the avatar, or `"all"` for a random deterministic variant across all styles. |
-| `size`      | `number`                                   | `64`         | Rendered size in pixels.                                                 |
-| `circle`    | `boolean`                                  | `false`      | If true, clips the avatar to a full circle (otherwise a full rectangle). |
-| `colors`    | `[string, string, string, string, string]` | –            | Exactly 5 colors to use. If omitted, a harmonious palette is generated.  |
-| `effect`    | `AvatarEffect`                             | `"none"`     | Optional post-processing effect (`none` or `noise`).                     |
-| `animate`   | `boolean`                                  | `false`      | Whether to animate the avatar.                                           |
-| `className` | `string`                                   | –            | Optional CSS class applied to the wrapper `span` element.                |
+| `size`      | `number`                                     | `64`         | Rendered size in pixels.                                                                                  |
+| `circle`    | `boolean`                                    | `false`      | If true, clips the avatar to a full circle (otherwise a full rectangle).                                  |
+| `colors`    | `[string, string, string, string, string]`   | –            | Exactly 5 colors to use. If omitted, a harmonious palette is generated.                                   |
+| `effect`    | `AvatarEffect`                               | `"none"`     | Optional post-processing effect (`none` or `noise`).                                                      |
+| `animate`   | `boolean`                                    | `false`      | Whether to animate the avatar.                                                                            |
+| `className` | `string`                                     | –            | Optional CSS class applied to the wrapper `span` element.                                                 |
 
 _Note: Custom palettes must contain exactly five hexadecimal colors. Unsupported effects and animation combinations are safely disabled in the returned output metadata._
 
@@ -151,9 +151,6 @@ _Note: Custom palettes must contain exactly five hexadecimal colors. Unsupported
 
 - `resolveVariant(name: string, variant?: string): AvatarVariant`
   Safely resolves a generic family name (e.g. `"classics"`, `"gradients"`), `"all"`, or any variant string into a concrete `AvatarVariant`.
-
-- `getContrast(hexColor: string): '#000000' | '#ffffff'`
-  Determines whether a dark (`#000000`) or light (`#ffffff`) foreground provides optimal contrast against any background hex color using standard YIQ perceived luminance.
 
 - `getAvatarDetails(variant: AvatarVariant): AvatarDetails`
   Retrieves capabilities metadata (e.g. if it supports animation or custom colors) for a specific variant.
