@@ -6,8 +6,12 @@ import { DEFAULT_AVATAR_VARIANT } from '../types'
 export interface AvatarProps {
   /** Deterministic avatar identity. Defaults to "Space UI" when omitted or empty. */
   name?: string
-  /** The visual family / style of the avatar. */
-  variant?: AvatarVariant | AvatarFamily
+  /**
+   * Specific variant (e.g. "triton", "pebble"), family ("gradient", "fluid", "classic", "paletteless"),
+   * or "all" to pick deterministically across all available variants.
+   * Defaults to DEFAULT_AVATAR_VARIANT.
+   */
+  variant?: AvatarVariant | AvatarFamily | 'all'
   /**
    * Exactly 5 colors to use for the avatar.
    * If not provided, a harmonious palette is generated from the name.

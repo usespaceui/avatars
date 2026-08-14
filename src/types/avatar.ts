@@ -83,6 +83,13 @@ export const CLASSICS_FAMILIES: readonly AvatarVariant[] = [
 
 export const PALETTELESS_FAMILIES: readonly AvatarVariant[] = [AvatarVariant.critter, AvatarVariant.kendo]
 
+export const ALL_AVATAR_VARIANTS: readonly AvatarVariant[] = [
+  ...GRADIENTS_FAMILIES,
+  ...FLUIDS_FAMILIES,
+  ...CLASSICS_FAMILIES,
+  ...PALETTELESS_FAMILIES,
+]
+
 export interface AvatarDetails {
   readonly id: AvatarVariant
   /** Visual family the variant belongs to. */
@@ -165,11 +172,8 @@ export interface PalettelessAvatarProps {
 
 const FAMILY_VARIANTS_MAP: Record<string, readonly AvatarVariant[]> = {
   [AvatarFamily.gradient]: GRADIENTS_FAMILIES,
-  gradients: GRADIENTS_FAMILIES,
   [AvatarFamily.fluid]: FLUIDS_FAMILIES,
-  fluids: FLUIDS_FAMILIES,
   [AvatarFamily.classic]: CLASSICS_FAMILIES,
-  classics: CLASSICS_FAMILIES,
   [AvatarFamily.paletteless]: PALETTELESS_FAMILIES,
 }
 
@@ -255,10 +259,7 @@ export function getAllAvatarDetails(): AvatarDetails[] {
  * Returns false for unknown variants, unsupported animation, or effects other
  * than `none`.
  */
-export function isAnimateActive(
-  variant: AvatarVariant | string,
-  effect: AvatarEffect = AvatarEffect.none,
-): boolean {
+export function isAnimateActive(variant: AvatarVariant | string, effect: AvatarEffect = AvatarEffect.none): boolean {
   const details = getAvatarDetails(variant)
   return Boolean(details?.supportsAnimate && details.animatedEffects.includes(effect))
 }

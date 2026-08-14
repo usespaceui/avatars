@@ -1,4 +1,3 @@
-
 export {
   createAvatar,
   resolveVariant,
@@ -7,6 +6,7 @@ export {
   type CreateAvatarOptions,
 } from './core/create-avatar'
 export {
+  ALL_AVATAR_VARIANTS,
   AvatarEffect,
   AvatarFamily,
   AvatarOutputFormat,
@@ -18,7 +18,4 @@ export {
   isAnimateActive,
 } from './types/avatar'
 
-export type {
-  AvatarDetails,
-} from './types/avatar'
-
+export type { AvatarDetails } from './types/avatar'

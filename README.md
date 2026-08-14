@@ -132,7 +132,7 @@ const avatarJson = createAvatar({
 | Prop        | Type                                       | Default      | Description                                                              |
 | ----------- | ------------------------------------------ | ------------ | ------------------------------------------------------------------------ |
 | `name`      | `string`                                   | `"Space UI"` | Deterministic avatar identity seed.                                      |
-| `variant`   | `AvatarVariant` \| `AvatarFamily`          | `"marble"`   | The visual family / style of the avatar.                                 |
+| `variant`   | `AvatarVariant` \| `AvatarFamily` \| `"all"` | `"pebble"`   | The visual family / style of the avatar, or `"all"` for a random deterministic variant across all styles. |
 | `size`      | `number`                                   | `64`         | Rendered size in pixels.                                                 |
 | `circle`    | `boolean`                                  | `false`      | If true, clips the avatar to a full circle (otherwise a full rectangle). |
 | `colors`    | `[string, string, string, string, string]` | –            | Exactly 5 colors to use. If omitted, a harmonious palette is generated.  |
@@ -149,8 +149,11 @@ _Note: Custom palettes must contain exactly five hexadecimal colors. Unsupported
 - `createAvatar(options: CreateAvatarOptions): string | AvatarJson`
   Core deterministic generation engine. Takes a configuration object (name, variant, colors, etc.) and returns either an SVG string or a structured JSON object.
 
-- `resolveVariant(variant: string): AvatarVariant`
-  Safely resolves a generic family name (e.g. `"classics"`) or unknown input into a specific, supported `AvatarVariant`.
+- `resolveVariant(name: string, variant?: string): AvatarVariant`
+  Safely resolves a generic family name (e.g. `"classics"`, `"gradients"`), `"all"`, or any variant string into a concrete `AvatarVariant`.
+
+- `getContrast(hexColor: string): '#000000' | '#ffffff'`
+  Determines whether a dark (`#000000`) or light (`#ffffff`) foreground provides optimal contrast against any background hex color using standard YIQ perceived luminance.
 
 - `getAvatarDetails(variant: AvatarVariant): AvatarDetails`
   Retrieves capabilities metadata (e.g. if it supports animation or custom colors) for a specific variant.
@@ -159,7 +162,7 @@ _Note: Custom palettes must contain exactly five hexadecimal colors. Unsupported
   Returns metadata for all available variants.
 
 - `getFamilyVariants(family: AvatarFamily): AvatarVariant[]`
-  Groups and returns all variants belonging to a specific family.
+  Groups and returns all variants belonging to a specific family or `"all"`.
 
 - `isAnimateActive(variant: AvatarVariant, animate?: boolean): boolean`
   Helper to check if motion is allowed, returning `false` if the variant doesn't support animation.

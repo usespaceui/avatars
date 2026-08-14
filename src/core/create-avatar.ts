@@ -33,10 +33,11 @@ export interface CreateAvatarOptions {
   /** Deterministic avatar identity. Defaults to "Space UI" when omitted or empty. */
   name?: string
   /**
-   * Specific variant (e.g. "triton", "pebble") or family (singular or plural, e.g. "gradient" or "gradients").
+   * Specific variant (e.g. "triton", "pebble"), family ("gradient", "fluid", "classic", "paletteless"),
+   * or "all" to pick deterministically across all available variants.
    * Defaults to DEFAULT_AVATAR_VARIANT.
    */
-  variant?: AvatarVariant | AvatarFamily | string
+  variant?: AvatarVariant | AvatarFamily | 'all'
   /** Rendered size in pixels. Defaults to 128. */
   size?: number
   /** If true, clips the avatar to a full circle. Defaults to false. */
@@ -72,6 +73,7 @@ const ALL_VARIANTS: readonly AvatarVariant[] = [
 ]
 
 const FAMILY_ALIASES: Record<string, readonly AvatarVariant[]> = {
+  all: ALL_VARIANTS,
   [AvatarFamily.gradient]: GRADIENTS_FAMILIES,
   gradients: GRADIENTS_FAMILIES,
   [AvatarFamily.fluid]: FLUIDS_FAMILIES,
@@ -121,9 +123,9 @@ function resolveColors(colors: AvatarColors | undefined, seed: number): [string,
 }
 
 /**
- * Resolves a variant, family, or empty string to a concrete AvatarVariant.
+ * Resolves a variant, family, 'all', or empty string to a concrete AvatarVariant.
  */
-export function resolveVariant(name: string, variant?: AvatarVariant | AvatarFamily | string): AvatarVariant {
+export function resolveVariant(name: string, variant?: AvatarVariant | AvatarFamily | 'all' | string): AvatarVariant {
   if (!variant) return DEFAULT_AVATAR_VARIANT
 
   assertString(variant, 'variant')
@@ -134,7 +136,7 @@ export function resolveVariant(name: string, variant?: AvatarVariant | AvatarFam
     return lower as AvatarVariant
   }
 
-  // 2. Family match -> pick deterministically within the family
+  // 2. Family / 'all' match -> pick deterministically within the pool
   const rng = hashSeed(`${name}|family-picker`)
 
   const family = FAMILY_ALIASES[lower]
