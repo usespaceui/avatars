@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://www.spaceui.one" target="_blank">
+  <a href="https://avatars.spaceui.one" target="_blank">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://avatars.spaceui.one/logo.svg">
       <source media="(prefers-color-scheme: light)" srcset="https://avatars.spaceui.one/logo.svg">
@@ -13,11 +13,11 @@
 </h1>
 
 <p align="center">
-  Beautiful generative gradient avatars for React. A unique procedural avatar for every seed.
+  Generative Deterministic SVG avatar generator for your UI projects. A unique generative avatar for every seed.
 </p>
 
 <p align="center">
-  <a href="https://www.spaceui.one">Preview</a> • 
+  <a href="https:/avatars.spaceui.one">Preview</a> • 
   <a href="https://github.com/usespaceui/avatars">Source Code</a> • 
   <a href="https://www.spaceui.one">SpaceUI.one</a>
 </p>
@@ -62,17 +62,17 @@ The same seed always produces the same avatar, with no stored images and no netw
 
 ---
 
-## 🌐 HTTP API
+## 🌐 HTTP API [Live Demo](https://avatars.spaceui.one/docs/api/rest)
 
 You can generate avatars without installing anything by using the free REST API endpoint.
 It supports `svg`, `png`, `webp` and `json` outputs.
 
 ```html
 <!-- Clean URL Route -->
-<img src="https://avatars.spaceui.one/api/v1/marble/ada.svg" alt="Ada" />
+<img src="https://avatars.spaceui.one/v1/pebble/orion.svg" alt="Orion" />
 
 <!-- Query Parameters Route -->
-<img src="https://avatars.spaceui.one/api/v1?name=ada&variant=gradient&format=webp" alt="Ada" />
+<img src="https://avatars.spaceui.one/v1?name=jupiter&variant=lumina&format=webp" alt="Jupiter" />
 ```
 
 ---
@@ -99,7 +99,7 @@ Zero dependencies.
 import { Avatar, AvatarVariant } from '@usespaceui/avatars'
 
 export default function Demo() {
-  return <Avatar name="Ada Lovelace" variant={AvatarVariant.triton} size={64} circle animate />
+  return <Avatar name="Sirius" variant={AvatarVariant.triton} size={64} circle animate />
 }
 ```
 
@@ -113,11 +113,11 @@ You can generate the raw SVG markup or JSON data directly for server environment
 import { createAvatar, AvatarOutputFormat } from '@usespaceui/avatars'
 
 // Generate raw SVG string
-const svg = createAvatar({ name: 'ada', variant: 'gradient', size: 256 })
+const svg = createAvatar({ name: 'sirius', variant: 'gradient', size: 256 })
 
 // Generate JSON metadata and structured data
 const avatarJson = createAvatar({
-  name: 'ada',
+  name: 'vega',
   variant: 'pebble',
   format: AvatarOutputFormat.json,
 })
@@ -147,7 +147,7 @@ _Note: Custom palettes must contain exactly five hexadecimal colors. Unsupported
 ## 🧰 Utilities Included
 
 - `createAvatar(options: CreateAvatarOptions): string | AvatarJson`
-  Core procedural generation engine. Takes a configuration object (name, variant, colors, etc.) and returns either an SVG string or a structured JSON object.
+  Core deterministic generation engine. Takes a configuration object (name, variant, colors, etc.) and returns either an SVG string or a structured JSON object.
 
 - `resolveVariant(variant: string): AvatarVariant`
   Safely resolves a generic family name (e.g. `"classics"`) or unknown input into a specific, supported `AvatarVariant`.
@@ -168,10 +168,10 @@ _Note: Custom palettes must contain exactly five hexadecimal colors. Unsupported
 
 ## 📦 Related Packages
 
-| Package                                                      | Description                                    |
-| ------------------------------------------------------------ | ---------------------------------------------- |
-| [`@usespaceui/smooth`](https://github.com/usespaceui/smooth) | Figma-style corner smoothing (Apple squircles) |
-| [`@usespaceui/sounds`](https://github.com/usespaceui/sounds) | UI sound effects and audio interactions        |
+| Package                                                          | Description                                    |
+| ---------------------------------------------------------------- | ---------------------------------------------- |
+| [`@usespaceui/sounds`](https://github.com/usespaceui/sounds)     | UI sound effects and audio interactions        |
+| [`@usespaceui/squircle`](https://github.com/usespaceui/squircle) | Figma-style corner smoothing (Apple squircles) |
 
 ---
 
